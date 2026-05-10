@@ -1,200 +1,310 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Radar Regulatório · Multas · 03–10 maio 2026</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radar Regulatório Multas — Semana 19 · 2026</title>
 <style>
-  :root{
-    --bg:#fafaf9; --surface:#ffffff; --text:#1c1917; --muted:#57534e;
-    --border:#e7e5e4; --accent:#ea580c; --soft:#f1f5f9; --link:#1d4ed8;
-    --alert-bg:#fef2f2; --alert-border:#dc2626; --alert-text:#7f1d1d;
+  :root {
+    --bg: #fafaf9;
+    --surface: #ffffff;
+    --text: #1c1917;
+    --muted: #57534e;
+    --border: #e7e5e4;
+    --accent: #ea580c;
+    --soft: #f1f5f9;
+    --link: #1d4ed8;
+    --alert-bg: #fef3c7;
+    --alert-border: #f59e0b;
   }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --bg:#0c0a09; --surface:#1c1917; --text:#f5f5f4; --muted:#a8a29e;
-      --border:#292524; --accent:#fb923c; --soft:#292524; --link:#93c5fd;
-      --alert-bg:#450a0a; --alert-border:#f87171; --alert-text:#fecaca;
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c0a09;
+      --surface: #1c1917;
+      --text: #f5f5f4;
+      --muted: #a8a29e;
+      --border: #292524;
+      --accent: #fb923c;
+      --soft: #292524;
+      --link: #93c5fd;
+      --alert-bg: #422006;
+      --alert-border: #f59e0b;
     }
   }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
-    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;
-    line-height:1.55;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:760px;margin:0 auto;padding:32px 20px 64px}
-  header{margin-bottom:24px}
-  .eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--accent);font-weight:600;margin-bottom:8px}
-  h1{font-size:28px;line-height:1.2;margin:0 0 6px;font-weight:700;letter-spacing:-.01em}
-  .subtitle{color:var(--muted);font-style:italic;font-size:15px;margin:0}
-  .tldr{background:var(--surface);border:1px solid var(--border);
-    border-radius:12px;padding:18px 20px;margin:24px 0}
-  .tldr h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--muted);margin:0 0 10px;font-weight:600}
-  .tldr p{margin:0 0 8px;font-size:15px}
-  .tldr p:last-child{margin-bottom:0}
-  nav.toc{background:var(--soft);border-radius:10px;padding:14px 18px;margin:20px 0 32px}
-  nav.toc h3{font-size:11px;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--muted);margin:0 0 8px;font-weight:600}
-  nav.toc ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px 18px}
-  nav.toc a{color:var(--link);text-decoration:none;font-size:14px;font-weight:500}
-  nav.toc a:hover{text-decoration:underline}
-  section{margin:36px 0 8px}
-  section > h2{font-size:20px;margin:0 0 4px;font-weight:700;letter-spacing:-.005em;
-    padding-top:6px;border-top:2px solid var(--border)}
-  section > h2 .count{color:var(--muted);font-weight:400;font-size:14px;margin-left:8px}
-  .item{background:var(--surface);border:1px solid var(--border);
-    border-radius:12px;padding:18px 20px;margin:16px 0}
-  .item.alert{border-color:var(--alert-border);background:var(--alert-bg)}
-  .item .tag{display:inline-block;font-size:10px;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:6px}
-  .item.alert .tag{color:var(--alert-border)}
-  .item h3{font-size:17px;margin:0 0 10px;font-weight:600;line-height:1.35}
-  .item p{margin:0 0 10px;font-size:15px}
-  .item p.what{color:var(--text)}
-  .item .why{background:var(--soft);border-left:3px solid var(--accent);
-    padding:10px 14px;border-radius:6px;margin:10px 0}
-  .item .why strong{font-size:11px;letter-spacing:.12em;text-transform:uppercase;
-    color:var(--muted);font-weight:600;display:block;margin-bottom:4px}
-  .item .why p{margin:0;font-size:14px}
-  .meta{font-size:13px;color:var(--muted);margin-top:10px;line-height:1.6}
-  .meta a{color:var(--link);text-decoration:none}
-  .meta a:hover{text-decoration:underline}
-  .meta strong{color:var(--text);font-weight:600}
-  .empty{font-style:italic;color:var(--muted);padding:14px 0}
-  .action-required{background:var(--surface);border:1px solid var(--border);
-    border-radius:12px;padding:18px 20px;margin:32px 0 16px}
-  .action-required h2{font-size:16px;margin:0 0 10px;font-weight:700;color:var(--accent)}
-  .action-required ul{margin:0;padding-left:18px}
-  .action-required li{margin-bottom:8px;font-size:14px}
-  .action-required p{margin:0;font-size:14px;color:var(--muted);font-style:italic}
-  footer{text-align:center;color:var(--muted);font-size:12px;margin-top:48px;
-    padding-top:20px;border-top:1px solid var(--border)}
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+  }
+  header { margin-bottom: 28px; }
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-size: 28px;
+    line-height: 1.25;
+    margin: 0 0 8px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 15px;
+    margin: 0;
+  }
+  .tldr {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 18px 20px;
+    border-radius: 8px;
+    margin: 24px 0 28px;
+    font-size: 15.5px;
+  }
+  .tldr strong { color: var(--accent); }
+  nav.toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+    padding: 14px;
+    background: var(--soft);
+    border-radius: 8px;
+  }
+  nav.toc a {
+    color: var(--link);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+  nav.toc a:hover { border-color: var(--accent); }
+  section {
+    margin: 36px 0;
+  }
+  section h2 {
+    font-size: 20px;
+    margin: 0 0 4px;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+  }
+  section > .section-note {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 0 0 18px;
+  }
+  article.item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  article.item .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  article.item .alert-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #92400e;
+    background: var(--alert-bg);
+    border: 1px solid var(--alert-border);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+    text-transform: uppercase;
+  }
+  @media (prefers-color-scheme: dark) {
+    article.item .alert-tag { color: #fcd34d; }
+  }
+  article.item h3 {
+    font-size: 17px;
+    margin: 0 0 10px;
+    line-height: 1.35;
+    font-weight: 600;
+  }
+  article.item p { margin: 0 0 10px; font-size: 15px; }
+  article.item .why {
+    background: var(--soft);
+    border-left: 3px solid var(--accent);
+    padding: 12px 14px;
+    border-radius: 4px;
+    margin: 12px 0;
+    font-size: 14.5px;
+  }
+  article.item .why strong { color: var(--accent); }
+  article.item .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+  article.item .meta a {
+    color: var(--link);
+    text-decoration: none;
+  }
+  article.item .meta a:hover { text-decoration: underline; }
+  .acao {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 24px;
+  }
+  .acao ul { margin: 8px 0 0; padding-left: 20px; }
+  .acao li { margin-bottom: 8px; font-size: 15px; }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12.5px;
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="container">
+  <header>
+    <div class="eyebrow">Radar Regulatório · Multas · Semana 19 · 2026</div>
+    <h1>Semana de 3 a 10 de maio</h1>
+    <p class="subtitle">O que mudou — e o que está prestes a mudar — no ecossistema regulatório de multas e dados veiculares.</p>
+  </header>
 
-<header>
-  <div class="eyebrow">Radar Regulatório · Multas · Semana 19 · 2026</div>
-  <h1>Semana de 03 a 10 de maio</h1>
-  <p class="subtitle">Sinal sobre ruído. Mudanças regulatórias e operacionais que afetam quem opera no ecossistema de consulta de dados veiculares e gestão de multas.</p>
-</header>
+  <div class="tldr">
+    <strong>TL;DR.</strong> Semana com dois movimentos relevantes: (1) DETRAN-BA homologou edital de credenciamento de prestadores de remoção/guarda e gestão de pátios — janela aberta para entrar no rol oficial por 5 anos; (2) MP 1.327/25, da renovação automática da CNH, tem prazo final em <strong>19/05</strong> para conversão em lei, com Congresso já tendo reintroduzido exigência de exame médico. Em São Paulo, o exame prático com carro próprio entrou em vigor estadual em 1º/mai — efeito Res. CONTRAN 1.020/25. Tramitação no CTB segue ativa (PL 305/25). <strong>Ação imediata existe: monitorar conversão da MP.</strong>
+  </div>
 
-<div class="tldr">
-  <h2>TL;DR</h2>
-  <p><strong>Senatran lançou a "Nova Jornada do Instrutor"</strong> — sistema nacional que conecta alunos a instrutores autônomos e autoescolas por geolocalização. É a aplicação operacional federal da Resolução Contran 1.020/2025 e remodela a cadeia de habilitação.</p>
-  <p><strong>Detran-RJ publicou Portaria 7058/2026</strong> regulamentando o exercício da atividade de instrutor autônomo no estado — sinal antecedente forte: outros Detrans devem replicar nas próximas semanas.</p>
-  <p><strong>Detran-BA homologou o Edital de Credenciamento 001/2026</strong> (Portaria 295/2026) para serviços de remoção, guarda de pátios e leilão de veículos.</p>
-  <p><strong>Senado avançou a análise do PL 3.509/2024</strong>, que isenta o comprador de veículo usado de multas do antigo dono — se aprovado, muda a lógica de cobrança, parcelamento e a precificação de risco em transferências.</p>
-</div>
+  <nav class="toc">
+    <a href="#senatran">Senatran / Federal</a>
+    <a href="#detrans">Detrans Estaduais</a>
+    <a href="#parcelamento">Parcelamento</a>
+    <a href="#legislacao">Legislação e Judiciário</a>
+  </nav>
 
-<nav class="toc">
-  <h3>Índice</h3>
-  <ul>
-    <li><a href="#senatran">1. Senatran / Federal</a></li>
-    <li><a href="#detrans">2. Detrans Estaduais</a></li>
-    <li><a href="#parcelamento">3. Parcelamento e Pagamentos</a></li>
-    <li><a href="#legislacao">4. Legislação e Judiciário</a></li>
-  </ul>
-</nav>
+  <section id="senatran">
+    <h2>Senatran / Federal</h2>
+    <p class="section-note">Mudanças no nível federal — Senatran, sistemas nacionais, integrações.</p>
 
-<section id="senatran">
-  <h2>1. Senatran / Federal <span class="count">· 2 itens</span></h2>
+    <article class="item">
+      <span class="tag">Senatran · CNH</span>
+      <h3>Renovação automática segue rodando — mas Congresso reintroduziu exame médico na MP</h3>
+      <p>A Comissão Mista do Congresso Nacional aprovou parecer da MP 1.327/25 mantendo a estrutura da renovação automática para condutores no RNPC (sem infrações nos últimos 12 meses), porém retomou a exigência de exame de aptidão física e mental. A MP entrou em vigor em janeiro com mais de 1 milhão de CNHs já renovadas automaticamente pela Senatran.</p>
+      <div class="why"><strong>Por que importa:</strong> qualquer empresa que opere em torno de renovação de CNH (clínicas credenciadas, despachantes, plataformas) precisa recalibrar fluxo. Se a versão aprovada no Congresso for sancionada com exame médico, o gargalo de capacidade volta para clínicas credenciadas — diferente do desenho original 100% digital da MP.</p>
+      <p class="meta">Vigência: MP em vigor; texto final depende de sanção até 19/05/2026. · <a href="https://www.gov.br/transportes/pt-br/assuntos/noticias/2026/03/bom-condutor-mais-de-1-milhao-de-motoristas-tiveram-a-cnh-renovada-automaticamente" target="_blank" rel="noopener">Fonte oficial (Min. Transportes)</a> · <a href="https://www.portaldotransito.com.br/noticias/fiscalizacao-e-legislacao/carteira-de-habilitacao-cnh/congresso-altera-mp-da-renovacao-automatica-da-cnh-e-volta-com-exame-medico/" target="_blank" rel="noopener">Cobertura Portal do Trânsito</a></p>
+    </article>
 
-  <article class="item alert">
-    <span class="tag">Alerta sistêmico</span>
-    <h3>Senatran lança "Nova Jornada do Instrutor": sistema nacional de busca de instrutores autônomos e autoescolas</h3>
-    <p class="what">A Senatran anunciou o lançamento de plataforma nacional integrada ao app CNH do Brasil em que alunos podem buscar, comparar e contratar instrutores autônomos credenciados e autoescolas por localização. As aulas práticas precisam ser registradas no sistema da Senatran, que também vai prover ferramenta de agendamento de exames.</p>
-    <div class="why">
-      <strong>Por que importa</strong>
-      <p>Reformata a cadeia de habilitação e cria um marketplace federal sob controle da Senatran. Para empresas que oferecem soluções a autoescolas (ou que pretendem entrar em CNH/educação de trânsito), abre nova porta de integração via Senatran/Serpro. Para quem opera consulta de dados veiculares, sinaliza que a Senatran está acelerando produtos digitais próprios — vale acompanhar se isso se estende para parcelamento, multas e CRLV.</p>
-    </div>
-    <p class="meta"><strong>Vigência:</strong> em rollout (maio/2026). · <strong>Fonte oficial:</strong> <a href="https://www.gov.br/transportes/pt-br/assuntos/noticias/2026/05/nova-jornada-do-instrutor-alunos-poderao-buscar-instrutores-e-autoescolas-por-localizacao">gov.br/transportes — Nova Jornada do Instrutor</a></p>
-  </article>
+    <article class="item">
+      <span class="tag">Senatran · Formação de condutores</span>
+      <h3>Res. CONTRAN 1.020/25 — desdobramentos operacionais em maio</h3>
+      <p>A resolução que reformulou a formação de condutores (fim da obrigatoriedade de CFC, mínimo de 2h práticas, fim da baliza, curso teórico online gratuito) segue em fase de implementação pelos Detrans. DETRAN-SP liberou em 1º/05 o exame prático com carro próprio em todo o estado.</p>
+      <div class="why"><strong>Por que importa:</strong> reorganização estrutural do mercado de CFCs/autoescolas e cadeia de fornecedores. Para empresas que atendem este ecossistema (sistemas, integradores, formação digital), abre janela; para CFCs tradicionais, fecha receita. Replicação em outros estados é o próximo movimento a monitorar.</p>
+      <p class="meta">Vigência: progressiva, conforme adesão estadual. · <a href="https://www.migalhas.com.br/depeso/445590/democratizacao-da-cnh-no-brasil-analise-da-nova-resolucao-do-contran" target="_blank" rel="noopener">Análise (Migalhas)</a></p>
+    </article>
+  </section>
 
-  <article class="item">
-    <span class="tag">Aplicação em curso</span>
-    <h3>Resolução Contran 1.020/2025: sistema escalonado de pontuação (20/30/40) já produz suspensões em maio</h3>
-    <p class="what">Mídia especializada e veículos de massa noticiaram nesta semana as primeiras suspensões de CNH aplicadas com o limite reduzido (20 pontos quando há 2+ infrações gravíssimas em 12 meses; 30 com 1 gravíssima; 40 sem gravíssima). Para condutores com EAR (atividade remunerada), o limite segue em 40 pontos.</p>
-    <div class="why">
-      <strong>Por que importa</strong>
-      <p>O efeito prático em volume de suspensões deve crescer ao longo de 2026, ampliando demanda por: (i) consulta de pontuação em tempo real, (ii) defesas administrativas e (iii) curso preventivo de reciclagem ao atingir 30 pontos. É insumo direto para precificar produto e dimensionar funil de aquisição.</p>
-    </div>
-    <p class="meta"><strong>Vigência:</strong> em vigor desde fev/2026, com aplicação ampliada agora. · <strong>Fonte oficial:</strong> <a href="https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran">gov.br — Resoluções Contran</a> · <a href="https://ndmais.com.br/transportes/cnh-suspensa-motoristas-prazos-maio-2026/">NDMais — Suspensões em maio</a></p>
-  </article>
-</section>
+  <section id="detrans">
+    <h2>Detrans Estaduais</h2>
+    <p class="section-note">Movimentos de Detrans com efeito sobre empresas que operam no ecossistema.</p>
 
-<section id="detrans">
-  <h2>2. Detrans Estaduais <span class="count">· 2 itens</span></h2>
+    <article class="item">
+      <span class="tag">Detran-BA · Credenciamento</span><span class="alert-tag">Janela aberta</span>
+      <h3>BA homologa edital de credenciamento para remoção, guarda e gestão de pátios</h3>
+      <p>Publicada no DOE-BA em 05/05/2026 (Edição 24387), a Portaria DETRAN-BA nº 295, de 4/05/2026, homologou o Edital de Credenciamento nº 001/2026 para prestação de serviços de remoção e guarda de veículos, gestão de pátios e suporte técnico a leilões públicos em todo o estado. Vigência do credenciamento: 5 anos a partir da publicação no DOE.</p>
+      <div class="why"><strong>Por que importa:</strong> credenciamento estadual abre porta para entrar no rol oficial de prestadores DETRAN-BA por 5 anos. Janela típica de oportunidade para players de gestão de pátios, fintechs ligadas a leilões e consultas de débito veicular. Vale ler o edital em detalhe antes de decidir se faz sentido entrar.</p>
+      <p class="meta">Vigência: imediata (5 anos a partir de 05/05/2026). · <a href="https://sindetranba.com.br/diario-oficial-do-estado-da-bahia-do-dia-05-05-2026-edicao-24387" target="_blank" rel="noopener">Fonte oficial (DOE-BA)</a></p>
+    </article>
 
-  <article class="item alert">
-    <span class="tag">RJ · Sinal antecedente</span>
-    <h3>Detran-RJ regulamenta instrutor autônomo via Portaria 7058/2026</h3>
-    <p class="what">Publicada no Diário Oficial do estado em 5 de maio, a Portaria 7058 autoriza o exercício da atividade de instrutor autônomo de trânsito no Rio de Janeiro, regulamentando localmente a Resolução Contran 1.020/2025. A norma entra em vigor 90 dias após a publicação (vigência prevista a partir de 03/agosto/2026).</p>
-    <div class="why">
-      <strong>Por que importa</strong>
-      <p>RJ é dos primeiros grandes Detrans a publicar a regulamentação local — historicamente, isso pressiona SP, MG e PR a publicarem versões similares em 60–90 dias. Se sua operação envolve credenciamento, integração com autoescolas, ou produtos para instrutores, vale mapear texto da portaria para antecipar requisitos. Acre já tem norma equivalente (Portaria 1182/2025) e PR sinalizou movimento.</p>
-    </div>
-    <p class="meta"><strong>Vigência:</strong> 90 dias após publicação (≈ 03/ago/2026). · <strong>Fonte oficial:</strong> <a href="https://www.detran.rj.gov.br/">Detran-RJ</a> · <a href="https://www.correiodalavoura.com/2026/05/detran-rj-autoriza-o-exercicio-da.html">Cobertura imprensa</a></p>
-  </article>
+    <article class="item">
+      <span class="tag">Detran-SP · Operacional</span>
+      <h3>Exame prático com carro próprio liberado em todo o estado a partir de 1º/05</h3>
+      <p>DETRAN-SP liberou o agendamento de exame prático da CNH com veículo próprio em todas as regiões do estado, em desdobramento da Res. CONTRAN 1.020/25 e da Portaria DETRAN-SP nº 47/2025. Antes, a opção era restrita a unidades-piloto.</p>
+      <div class="why"><strong>Por que importa:</strong> ECVs (Empresas Credenciadas de Vistoria) e integradores tecnológicos credenciados em SP estão sob marco normativo mais exigente — Portaria DETRAN-SP 47/2025 impõe integração compulsória ao sistema do órgão via integradores credenciados, conformidade ISO/IEC 27001/27701/27017/27018 e adequação plena à LGPD. Quem opera em SP precisa estar com a casa em ordem.</p>
+      <p class="meta">Vigência: imediata (1º/05/2026). · <a href="https://www.despachantedok.com.br/blog/noticias/exame-pratico-da-cnh-com-carro-proprio-detran-sp-libera-agendamento/" target="_blank" rel="noopener">Cobertura</a> · <a href="https://addexconsultoria.com.br/nova-portaria-detran-sp-no-47-2025-o-que-muda-e-quais-os-impactos-para-as-ecvs-a-partir-de-2026/" target="_blank" rel="noopener">Análise sobre Portaria DETRAN-SP 47/2025</a></p>
+    </article>
+  </section>
 
-  <article class="item">
-    <span class="tag">BA · Credenciamento</span>
-    <h3>Detran-BA homologa Edital 001/2026 para remoção, guarda e leilão de veículos (Portaria 295/2026)</h3>
-    <p class="what">Publicada no Diário Oficial do Estado da Bahia em 5 de maio (Edição 24387), a Portaria 295 de 4/maio homologa o Edital de Credenciamento 001/2026 para empresas que prestam serviços de remoção, guarda em pátio e suporte técnico para leilões públicos no âmbito do Detran/BA.</p>
-    <div class="why">
-      <strong>Por que importa</strong>
-      <p>Mexe com a base de fornecedores credenciados da BA — relevante para players do ecossistema de pátio/leilão e empresas que dependem dessa cadeia para fluxo de dados (chassi, situação, histórico). Se você tem operação ou parcerias na BA, é hora de revisar elegibilidade. Bahia também costuma servir de modelo para outros Detrans nordestinos.</p>
-    </div>
-    <p class="meta"><strong>Vigência:</strong> em vigor (publicação 05/05/2026). · <strong>Fonte oficial:</strong> <a href="https://sindetranba.com.br/diario-oficial-do-estado-da-bahia-do-dia-05-05-2026-edicao-24387">Sindetran BA — DOE 05/05/2026</a></p>
-  </article>
-</section>
+  <section id="parcelamento">
+    <h2>Parcelamento e Pagamentos</h2>
+    <p class="section-note">Mudanças em parcelamento de multas e meios de pagamento.</p>
 
-<section id="parcelamento">
-  <h2>3. Parcelamento e Pagamentos <span class="count">· 0 itens</span></h2>
-  <p class="empty">Sem novidades relevantes nesta janela. Nenhum estado novo autorizou parcelamento via cartão e o Contran não publicou alteração nas regras vigentes. Monitoramento ativo para próxima semana.</p>
-</section>
+    <article class="item">
+      <span class="tag">Parcelamento</span>
+      <h3>Sem novidades regulatórias relevantes nesta semana</h3>
+      <p>O marco do parcelamento de multas segue regido pela Res. CONTRAN nº 918/2022, com adesão facultativa de cada Detran estadual. Não foram identificadas novas autorizações estaduais nem mudanças nas regras de parcelamento na janela de 3 a 10 de maio.</p>
+      <div class="why"><strong>Por que importa:</strong> mercado de parcelamento de multas/débitos veiculares segue dependente de credenciamento estadual caso a caso. Mapeamento atualizado dos estados que já permitem (e dos que não permitem) continua sendo ativo estratégico — uma onda de adesão pós-RNPC/MP 1.327 ainda é cenário possível, mas não materializado.</p>
+      <p class="meta">Vigência: regime vigente, sem alteração. · <a href="https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran" target="_blank" rel="noopener">Resoluções CONTRAN</a></p>
+    </article>
+  </section>
 
-<section id="legislacao">
-  <h2>4. Legislação e Judiciário <span class="count">· 2 itens</span></h2>
+  <section id="legislacao">
+    <h2>Legislação e Judiciário</h2>
+    <p class="section-note">CTB, projetos de lei em estágio avançado, decisões de cortes superiores.</p>
 
-  <article class="item alert">
-    <span class="tag">Senado · Alto impacto</span>
-    <h3>PL 3.509/2024: Senado avança análise do projeto que isenta comprador de veículo usado de multas do antigo dono</h3>
-    <p class="what">O projeto, já aprovado na Câmara, está em análise no Senado e garante ao novo proprietário o direito de não responder por multas anteriores à transferência do veículo. O texto altera o CTB para vincular a responsabilidade pela infração ao proprietário no momento do fato gerador.</p>
-    <div class="why">
-      <strong>Por que importa</strong>
-      <p>Se aprovado, muda profundamente a lógica de cobrança e parcelamento de multas em veículos usados — afeta volume de inadimplência herdada, dinâmica de transferência (DUT), precificação no mercado de seminovos e produtos que oferecem "limpa nome veicular". Vale começar a desenhar cenários de produto agora, não depois da sanção.</p>
-    </div>
-    <p class="meta"><strong>Status:</strong> em análise no Senado (já aprovado na Câmara). · <strong>Fonte oficial:</strong> <a href="https://www12.senado.leg.br/noticias/materias/2026/04/01/projeto-isenta-comprador-de-veiculo-usado-de-pagar-multas-do-antigo-dono">Senado Notícias — PL 3.509/2024</a></p>
-  </article>
+    <article class="item">
+      <span class="tag">Câmara dos Deputados · PL 305/25</span>
+      <h3>CVT aprova ampliação da CNH B para elétricos até 4.250 kg</h3>
+      <p>A Comissão de Viação e Transportes da Câmara aprovou em final de abril o PL 305/25, que altera o CTB para autorizar motoristas com CNH categoria B a dirigir veículos elétricos de até 4.250 kg (hoje o limite é 3.500 kg). Texto segue para outras comissões antes de ir ao plenário.</p>
+      <div class="why"><strong>Por que importa:</strong> mudança em categoria de habilitação tem efeito direto sobre frotas comerciais leves (last-mile, locação, delivery). Para empresas que operam dados de CNH e veículos, é mudança que vai exigir recalibragem de regras de negócio. Tramitação ainda inicial — não há vigência, mas vale acompanhar.</p>
+      <p class="meta">Vigência: PL em tramitação na Câmara. · <a href="https://ndmais.com.br/transito/cnh-categoria-b-carros-4-toneladas-projeto/" target="_blank" rel="noopener">Cobertura</a></p>
+    </article>
 
-  <article class="item">
-    <span class="tag">Câmara · Comissão</span>
-    <h3>CVT da Câmara aprova PL incluindo câmbio automático nas provas da CNH</h3>
-    <p class="what">A Comissão de Viação e Transportes da Câmara aprovou projeto que insere noções teóricas obrigatórias sobre câmbio automático nos exames de habilitação, alterando o CTB. Outro PL aprovado na CVT eleva o limite de peso para a Categoria B para 4.250 kg em veículos com propulsão elétrica ou híbrida plug-in.</p>
-    <div class="why">
-      <strong>Por que importa</strong>
-      <p>Estágio inicial mas tendência relevante — convergência regulatória entre CNH e eletrificação. Para produtos voltados a frotas elétricas, novos motoristas e gestão de habilitação corporativa, é tema para colocar no radar de roadmap (sem urgência operacional).</p>
-    </div>
-    <p class="meta"><strong>Status:</strong> aprovado em comissão; segue tramitação. · <strong>Fonte oficial:</strong> <a href="https://www.portaldotransito.com.br/noticias/fiscalizacao-e-legislacao/projetos-de-lei/vai-tirar-cnh-comissao-aprova-mudanca-que-pode-afetar-prova-de-habilitacao-no-brasil/">Portal do Trânsito</a> · <a href="https://www.em.com.br/emfoco/2026/04/29/nova-lei-que-libera-motoristas-da-categoria-b-para-veiculos-mais-pesados-e-aprovada-na-camara-dos-deputados-pela-cvt/">Estado de Minas</a></p>
-  </article>
-</section>
+    <article class="item">
+      <span class="tag">Congresso · MP 1.327/25</span><span class="alert-tag">Prazo 19/05</span>
+      <h3>MP da renovação automática vai a plenário com exigência de exame médico</h3>
+      <p>Comissão Mista aprovou parecer da MP 1.327/25, que precisa ser votada nas duas Casas até 19/05/2026 para não perder validade. A versão aprovada no colegiado mantém o desenho da renovação automática, mas reintroduz a obrigação de exame de aptidão física e mental — ponto que o governo havia retirado.</p>
+      <div class="why"><strong>Por que importa:</strong> a forma final da lei muda a economia do produto para qualquer player ligado à renovação de CNH. Se a versão com exame médico passar, o ganho de eficiência é mais limitado e o gargalo migra para a oferta de clínicas credenciadas — risco e oportunidade ao mesmo tempo.</p>
+      <p class="meta">Vigência: MP vigente; prazo final em 19/05/2026. · <a href="https://www.portaldotransito.com.br/noticias/fiscalizacao-e-legislacao/carteira-de-habilitacao-cnh/congresso-altera-mp-da-renovacao-automatica-da-cnh-e-volta-com-exame-medico/" target="_blank" rel="noopener">Cobertura</a></p>
+    </article>
 
-<div class="action-required">
-  <h2>⚠ Ação requerida</h2>
-  <ul>
-    <li><strong>Mapear texto da Portaria Detran-RJ 7058/2026</strong> (instrutor autônomo) e desenhar comparativo com regulamentação prevista de SP/MG/PR — janela de 60–90 dias para se posicionar antes que outros Detrans publiquem versões locais.</li>
-    <li><strong>Avaliar elegibilidade no Edital Detran-BA 001/2026</strong> caso haja interesse em operar serviços de pátio/leilão na Bahia.</li>
-    <li><strong>Iniciar análise de cenário de produto</strong> caso o PL 3.509/2024 (multas do antigo dono em veículos usados) avance no Senado — impacto material em cobrança, produtos para mercado de seminovos.</li>
-  </ul>
-</div>
+    <article class="item">
+      <span class="tag">STJ · Corte Especial</span>
+      <h3>Intimação pessoal é pressuposto para incidência de multa coercitiva</h3>
+      <p>Em decisão de 25/03/2026 (ainda relevante como pano de fundo da semana), a Corte Especial do STJ definiu que a prévia intimação pessoal do devedor é pressuposto para a cobrança de multa coercitiva (astreintes), nos termos da Súmula 410. Não trata de multa de trânsito diretamente, mas reforça a tese de devido processo nas cobranças de natureza administrativa.</p>
+      <div class="why"><strong>Por que importa:</strong> reforça argumentação para empresas que operam recursos administrativos de multa de trânsito — qualquer cobrança que dependa de notificação prévia sem comprovação de recebimento ganha mais um precedente útil. Vale acompanhar como tribunais inferiores absorvem o entendimento.</p>
+      <p class="meta">Vigência: tese aplicável. · <a href="https://www.stj.jus.br/sites/portalp/Paginas/Comunicacao/Noticias/2026/25032026-Corte-Especial-define-que-previa-intimacao-pessoal-e-pressuposto-para-cobranca-de-multa-coercitiva.aspx" target="_blank" rel="noopener">Fonte oficial (STJ)</a></p>
+    </article>
+  </section>
 
-<footer>
-  Radar Regulatório · Multas · Edição automática semanal · Pesquisa em 10/maio/2026
-</footer>
+  <div class="acao">
+    <h2 style="margin-top: 0; border: none; padding-bottom: 0;">Ação requerida</h2>
+    <ul>
+      <li><strong>Até 19/05/2026:</strong> monitorar votação da MP 1.327/25 em plenário (Câmara e Senado). Texto final define se exame médico volta a ser exigido para renovação automática — impacto direto em desenho de produto e parceiros clínicos.</li>
+      <li><strong>Decisão estratégica:</strong> avaliar entrada no credenciamento DETRAN-BA (Edital 001/2026 — remoção/guarda/pátios) se a empresa atua ou tem interesse no estado. Vigência de 5 anos a partir de 05/05/2026.</li>
+      <li><strong>Operacional:</strong> se opera em SP, revisar conformidade da empresa (própria ou parceiros) com a Portaria DETRAN-SP 47/2025 (integração via integrador credenciado, ISO 27001/27701/27017/27018, LGPD plena).</li>
+    </ul>
+  </div>
 
+  <footer>
+    Radar Regulatório Multas · Edição automatizada · Semana 19 de 2026
+  </footer>
 </div>
 </body>
 </html>
