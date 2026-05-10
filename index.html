@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radar Regulatório Multas — Yago</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --surface: #ffffff;
+    --text: #1c1917;
+    --muted: #57534e;
+    --border: #e7e5e4;
+    --accent: #ea580c;
+    --soft: #f1f5f9;
+    --link: #1d4ed8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c0a09;
+      --surface: #1c1917;
+      --text: #f5f5f4;
+      --muted: #a8a29e;
+      --border: #292524;
+      --accent: #fb923c;
+      --soft: #292524;
+      --link: #93c5fd;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+  header {
+    margin-bottom: 48px;
+  }
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-size: 36px;
+    line-height: 1.15;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+  .subtitle {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 17px;
+    margin: 0;
+  }
+  .editions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .edition {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .edition:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+  .week {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+  .date {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: var(--text);
+  }
+  .meta {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0;
+  }
+  .placeholder {
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: 40px 24px;
+    text-align: center;
+    color: var(--muted);
+  }
+  .placeholder strong {
+    display: block;
+    color: var(--text);
+    font-size: 17px;
+    margin-bottom: 8px;
+  }
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  footer a {
+    color: var(--link);
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="eyebrow">Radar Regulatório · Multas</div>
+    <h1>Monitor semanal regulatório do ecossistema de multas no Brasil</h1>
+    <p class="subtitle">Senatran, Detrans, parcelamento e CTB — apenas sinal regulatório e operacional, semana a semana.</p>
+  </header>
+
+  <div class="editions">
+    <!-- EDIÇÕES_AQUI -->
+    <div class="placeholder">
+      <strong>Aguardando primeira edição</strong>
+      A primeira publicação será gerada automaticamente toda segunda-feira às 00:10.
+    </div>
+  </div>
+
+  <footer>
+    Publicado automaticamente · <a href="https://github.com/yagoalmei/radar-regulatorio-multas">Fonte</a>
+  </footer>
+</div>
+</body>
+</html>
