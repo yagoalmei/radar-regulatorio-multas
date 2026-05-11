@@ -1,236 +1,284 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Radar Regulatório Multas · Semana de 04 a 11 de maio · 2026</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Radar Regulatório Multas — Semana 20 · 2026</title>
 <style>
-  :root {
-    --bg: #fafaf9;
-    --surface: #ffffff;
-    --text: #1c1917;
-    --muted: #57534e;
-    --border: #e7e5e4;
-    --accent: #ea580c;
-    --soft: #f1f5f9;
-    --link: #1d4ed8;
-    --alert-bg: #fff7ed;
-    --alert-border: #fb923c;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0c0a09;
-      --surface: #1c1917;
-      --text: #f5f5f4;
-      --muted: #a8a29e;
-      --border: #292524;
-      --accent: #fb923c;
-      --soft: #292524;
-      --link: #93c5fd;
-      --alert-bg: #3a1d05;
-      --alert-border: #fb923c;
-    }
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
-    line-height: 1.55;
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
-  }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px; }
-  header { border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 32px; }
-  .eyebrow {
-    font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
-  }
-  h1 { font-size: 28px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; line-height: 1.2; }
-  .subtitle { font-size: 16px; color: var(--muted); font-style: italic; margin: 0; }
-
-  .tldr {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-left: 4px solid var(--accent);
-    padding: 18px 20px;
-    border-radius: 6px;
-    margin-bottom: 32px;
-  }
-  .tldr h2 { font-size: 13px; margin: 0 0 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
-  .tldr p { margin: 0 0 8px; font-size: 15px; }
-  .tldr p:last-child { margin-bottom: 0; }
-
-  .toc { margin-bottom: 40px; padding: 14px 18px; background: var(--soft); border-radius: 6px; }
-  .toc-title { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-  .toc ul { margin: 0; padding-left: 20px; }
-  .toc li { font-size: 14px; margin-bottom: 4px; }
-  .toc a { color: var(--link); text-decoration: none; }
-  .toc a:hover { text-decoration: underline; }
-
-  section { margin-bottom: 48px; }
-  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
-  h2.section-h { font-size: 22px; font-weight: 700; margin: 0 0 20px; padding-bottom: 8px; border-bottom: 2px solid var(--border); letter-spacing: -0.01em; }
-
-  .item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 22px; margin-bottom: 18px; }
-  .item .tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-  .item .tag.alert { color: #fff; background: var(--accent); padding: 3px 8px; border-radius: 3px; margin-right: 6px; }
-  .item h3 { font-size: 17px; font-weight: 700; margin: 0 0 10px; line-height: 1.35; }
-  .item .what { margin: 0 0 14px; font-size: 15px; color: var(--text); }
-  .item .why {
-    background: var(--soft); border-left: 3px solid var(--accent);
-    padding: 10px 14px; border-radius: 4px; margin: 0 0 14px;
-  }
-  .item .why-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
-  .item .why p { margin: 0; font-size: 14px; }
-  .item .meta { font-size: 13px; color: var(--muted); margin: 0; }
-  .item .meta strong { color: var(--text); font-weight: 600; }
-  .item a { color: var(--link); text-decoration: none; }
-  .item a:hover { text-decoration: underline; }
-
-  .empty { color: var(--muted); font-style: italic; padding: 14px 0; }
-
-  .action-box {
-    background: var(--alert-bg);
-    border: 1px solid var(--alert-border);
-    border-radius: 8px;
-    padding: 20px 22px;
-    margin-bottom: 40px;
-  }
-  .action-box h2 { font-size: 16px; margin: 0 0 12px; font-weight: 700; color: var(--accent); }
-  .action-box ul { margin: 0; padding-left: 20px; }
-  .action-box li { font-size: 14px; margin-bottom: 8px; }
-
-  footer { text-align: center; font-size: 12px; color: var(--muted); padding-top: 24px; border-top: 1px solid var(--border); }
+:root{--bg:#fafaf9;--surface:#fff;--text:#1c1917;--muted:#57534e;--border:#e7e5e4;--accent:#ea580c;--soft:#f1f5f9;--link:#1d4ed8}
+@media(prefers-color-scheme:dark){:root{--bg:#0c0a09;--surface:#1c1917;--text:#f5f5f4;--muted:#a8a29e;--border:#292524;--accent:#fb923c;--soft:#292524;--link:#93c5fd}}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6}
+.wrap{max-width:760px;margin:0 auto;padding:32px 20px 80px}
+header{margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.eyebrow{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:0 0 12px}
+h1{font-size:32px;line-height:1.2;margin:0 0 8px;letter-spacing:-0.01em}
+.subtitle{font-style:italic;color:var(--muted);margin:0;font-size:15px}
+.tldr{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin:0 0 28px}
+.tldr-title{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 8px}
+.tldr p{margin:0;font-size:14px}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin:0 0 36px}
+.toc-title{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:0 0 10px}
+.toc ol{margin:0;padding-left:22px}
+.toc li{margin:4px 0;font-size:14px}
+.toc a{color:var(--link);text-decoration:none}
+.section-title{font-size:13px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:36px 0 16px;padding-top:20px;border-top:1px solid var(--border)}
+article.item{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:20px;scroll-margin-top:20px}
+.item-tag{display:inline-block;background:var(--soft);color:var(--muted);font-size:12px;letter-spacing:0.1em;font-weight:700;padding:3px 9px;border-radius:6px;margin-bottom:10px}
+article.item h3{font-size:18px;line-height:1.3;margin:0 0 12px;letter-spacing:-0.01em}
+article.item p{margin:0 0 12px;font-size:15px}
+article.item p strong{font-weight:600}
+.why{background:var(--soft);border-left:3px solid var(--accent);padding:14px 16px;border-radius:6px;margin:14px 0}
+.why-title{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 6px}
+.why p{margin:0;font-size:14px}
+.meta-line{font-size:13px;color:var(--muted);margin-top:8px}
+.meta-line a{color:var(--link);text-decoration:none}
+.empty{color:var(--muted);font-size:14px;font-style:italic;padding:10px 0}
+.action-required{background:var(--surface);border:1px solid var(--accent);border-radius:14px;padding:24px;margin-top:36px}
+.action-title{font-size:13px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 12px}
+.action-required ul{margin:0;padding-left:22px}
+.action-required li{margin:8px 0;font-size:14px}
+footer{margin-top:60px;padding-top:24px;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:13px}
+footer a{color:var(--link);text-decoration:none}
+.vote-bar{display:flex;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid var(--border);align-items:center;flex-wrap:wrap}
+.vote-bar .lbl{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-right:8px}
+.vote-btn{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:6px 12px;font-size:16px;cursor:pointer;transition:all 0.15s;font-family:inherit}
+.vote-btn:hover{transform:scale(1.08)}
+.vote-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.vote-status{font-size:12px;color:var(--muted);margin-left:auto}
+.vote-form{margin-top:10px;display:none}
+.vote-form.open{display:block}
+.vote-form textarea{width:100%;min-height:60px;padding:8px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:13px;background:var(--bg);color:var(--text);resize:vertical}
+.vote-form button{margin-top:6px;background:var(--accent);color:#fff;border:none;border-radius:6px;padding:6px 14px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+.nickname-prompt{position:fixed;bottom:20px;right:20px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;box-shadow:0 8px 24px rgba(0,0,0,0.15);max-width:280px;z-index:100;display:none}
+.nickname-prompt.open{display:block}
+.nickname-prompt p{margin:0 0 8px;font-size:13px}
+.nickname-prompt input{width:100%;padding:6px 8px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-family:inherit;font-size:13px;margin-bottom:8px}
+.nickname-prompt button{background:var(--accent);color:#fff;border:none;border-radius:6px;padding:6px 12px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;margin-right:6px}
+.nickname-prompt button.skip{background:var(--soft);color:var(--muted)}
 </style>
 </head>
 <body>
 <div class="wrap">
+<header>
+  <p class="eyebrow">RADAR REGULATÓRIO · MULTAS · SEMANA 20 · 2026</p>
+  <h1>Semana de 04 a 11 de maio</h1>
+  <p class="subtitle">Semana com movimento nos Detrans estaduais (RJ regulamenta instrutores autônomos, RS ajusta preços de registro) e consolidação do entendimento do STJ sobre suspensão de CNH por dívida.</p>
+</header>
 
-  <header>
-    <div class="eyebrow">Radar Regulatório · Multas · Semana 19 · 2026</div>
-    <h1>Semana de 04 a 11 de maio</h1>
-    <p class="subtitle">Mudanças regulatórias e operacionais no ecossistema de consulta veicular, multas e parcelamento no Brasil.</p>
-  </header>
+<div class="tldr">
+  <p class="tldr-title">TL;DR</p>
+  <p><strong>Sem novidades Senatran/federal</strong> esta semana. <strong>DETRAN-RJ</strong> publica Portaria 7058 regulamentando instrutores autônomos de trânsito (impacto em autoescolas e empresas que oferecem treinamento). <strong>DETRAN-RS</strong> ajusta preços de registro de contratos de financiamento. <strong>STJ Tema 1.137</strong> consolidado fim de 2025 já produz efeitos em 2026 — critérios objetivos pra suspensão de CNH por dívida, vinculante. Sem mudanças em parcelamento esta semana.</p>
+</div>
 
-  <div class="tldr">
-    <h2>TL;DR</h2>
-    <p><strong>Semana de movimento federal alto:</strong> Câmara aprovou a MP 1.327/25 (renovação automática de CNH) em 07/05 — texto altera o CTB e segue ao Senado. Sinal claro de que o eixo CNH/condutor está sendo redesenhado no nível nacional.</p>
-    <p><strong>Movimento operacional nos estados:</strong> DETRAN/BA homologou edital de credenciamento para gestão de pátios, remoção e leilões (Portaria 295/04-mai). DETRAN/RJ regulamentou credenciamento de instrutor autônomo (Portaria 7058/05-mai).</p>
-    <p><strong>Senatran:</strong> lançou em 06/05 a "Nova Jornada do Instrutor" no app CNH do Brasil — fluxo 100% digital nacional para credenciamento e busca de instrutores.</p>
-    <p><strong>Ação requerida:</strong> 1 item exige acompanhamento prioritário (MP 1.327 no Senado).</p>
+<nav class="toc">
+  <p class="toc-title">Nesta edição</p>
+  <ol>
+    <li><a href="#senatran">Senatran / Federal</a></li>
+    <li><a href="#detrans">Detrans Estaduais</a></li>
+    <li><a href="#parcelamento">Parcelamento e Pagamentos</a></li>
+    <li><a href="#legislacao">Legislação e Judiciário</a></li>
+  </ol>
+</nav>
+
+<h2 class="section-title" id="senatran">Senatran / Federal</h2>
+<p class="empty">Sem novidades relevantes esta semana. Próxima edição retoma monitoramento de portarias, resoluções CONTRAN e mudanças no acesso a bases RENAINF, SNG, CNH e CRLV.</p>
+
+<h2 class="section-title" id="detrans">Detrans Estaduais</h2>
+
+<article class="item" id="item-01" data-item-id="01">
+  <span class="item-tag">RJ · DETRAN</span>
+  <h3>DETRAN-RJ Portaria 7058 regulamenta instrutores autônomos de trânsito</h3>
+  <p>A <strong>Portaria DETRAN-RJ Nº 7058</strong> regulamenta a Resolução CONTRAN nº 1.020/2025 e estabelece critérios de credenciamento e operação de <strong>instrutores autônomos de trânsito</strong> no estado. Profissionais devem submeter certificado de conclusão de curso, CNH com EAR, certidão de antecedentes criminais e declaração de não-cancelamento prévio em 5 anos. Aulas práticas registradas no SENATRAN; veículos com freios e embreagem duplos obrigatórios.</p>
+  <div class="why">
+    <p class="why-title">Por que importa</p>
+    <p>Abre formalmente o mercado de instrução autônoma no RJ — autoescolas tradicionais perdem reserva. Para empresas que oferecem benefícios de mobilidade pra colaboradores (treinamento de frota, formação CNH), surge canal alternativo de fornecimento. Para sistemas que integram com SENATRAN (registro de aulas), volume de transações vai aumentar. Vale acompanhar se outros Detrans (SP, MG, RS) seguem com regulamentação espelho — Tema clássico de sinal antecedente em mobilidade.</p>
   </div>
-
-  <nav class="toc">
-    <div class="toc-title">Índice</div>
-    <ul>
-      <li><a href="#senatran">1. Senatran / Federal</a></li>
-      <li><a href="#detrans">2. Detrans Estaduais</a></li>
-      <li><a href="#parcelamento">3. Parcelamento e Pagamentos</a></li>
-      <li><a href="#legislacao">4. Legislação e Judiciário</a></li>
-      <li><a href="#acao">Ação requerida</a></li>
-    </ul>
-  </nav>
-
-  <section id="senatran">
-    <div class="section-title">Eixo 1</div>
-    <h2 class="section-h">Senatran / Federal</h2>
-
-    <article class="item">
-      <span class="tag">Senatran · 06/05/2026</span>
-      <h3>Nova Jornada do Instrutor: credenciamento de instrutores autônomos vai 100% digital nacional</h3>
-      <p class="what">Senatran e Serpro lançaram oficialmente no app CNH do Brasil a "Nova Jornada do Instrutor", fluxo nacional digital para cadastro, busca e contratação de aulas práticas com instrutores autônomos. Cadastro restrito a profissionais com credenciamento válido junto ao Detran do seu estado. Mais de 170 mil instrutores já cadastrados desde janeiro/2026.</p>
-      <div class="why">
-        <div class="why-label">Por que importa</div>
-        <p>Senatran centraliza no app federal o relacionamento condutor-instrutor antes pulverizado por CFCs e Detrans. Plataformas privadas que intermediavam instrução ganham concorrente direto federal. Tendência de migração de outros papéis (despachante, leiloeiro, vistoriador) para o mesmo padrão de "marketplace oficial" deve ser monitorada.</p>
-      </div>
-      <p class="meta"><strong>Vigência:</strong> Lançamento oficial em 06/05/2026. · <strong>Fonte oficial:</strong> <a href="https://www.serpro.gov.br/menu/noticias/noticias-2026/cnh-do-brasil-cria-jornada-digital-nacional-para-instrutores-de-transito" target="_blank">Serpro · CNH do Brasil cria jornada digital nacional</a></p>
-    </article>
-
-    <article class="item">
-      <span class="tag">Senatran · Campanha</span>
-      <h3>Maio Amarelo 2026: campanha institucional sem desdobramento regulatório</h3>
-      <p class="what">Senatran iniciou em 29/04 a campanha Maio Amarelo 2026, tema "No trânsito, enxergar o outro é salvar vidas". A semana de 04 a 11/05 concentrou ações educativas em parceria com órgãos estaduais e a ANTT (Seminário Vias Seguras, 12-13/05). Sem mudança regulatória vinculada à campanha nesta janela.</p>
-      <div class="why">
-        <div class="why-label">Por que importa</div>
-        <p>Maio Amarelo historicamente antecede operações de fiscalização mais intensas e justifica novas resoluções Contran/Senatran nos meses seguintes. Manter monitoramento ativo no fim de maio e em junho/2026 para captar normativos derivados.</p>
-      </div>
-      <p class="meta"><strong>Vigência:</strong> Campanha em curso durante maio/2026. · <strong>Fonte oficial:</strong> <a href="https://agenciagov.ebc.com.br/noticias/202604/maio-amarelo-senatran-mobiliza-sociedade-por-um-transito-mais-humano-e-seguro-no-brasil" target="_blank">Agência Gov · Maio Amarelo 2026</a></p>
-    </article>
-  </section>
-
-  <section id="detrans">
-    <div class="section-title">Eixo 2</div>
-    <h2 class="section-h">Detrans Estaduais</h2>
-
-    <article class="item">
-      <span class="tag">DETRAN/BA · 04/05/2026</span>
-      <h3>Bahia abre credenciamento para gestão de pátios, remoção e suporte a leilões</h3>
-      <p class="what">A Portaria DETRAN/BA nº 295, de 04/05/2026 (publicada no DOE-BA em 05/05, Edição 24387), homologou o Edital de Credenciamento nº 001/2026, que institui o processo de credenciamento para prestação de serviço de remoção e guarda de veículos, gestão de pátios e suporte técnico aos leilões públicos. Remuneração paga diretamente pelo usuário ao credenciado, conforme tabela da Lei Estadual 11.631/2009.</p>
-      <div class="why">
-        <div class="why-label">Por que importa</div>
-        <p>Mudança no modelo de credenciamento de operadores de pátio é um vetor relevante: empresas que prestam serviços paralelos (consulta veicular, gestão de débitos, intermediação de leilão) precisam revisar acordos com os pátios credenciados. Tipo de portaria que outros Detrans tendem a replicar — vale acompanhar BA como precedente regional.</p>
-      </div>
-      <p class="meta"><strong>Vigência:</strong> Edital publicado em 05/05/2026, com etapas de cadastro, inscrição e habilitação subsequentes. · <strong>Fonte oficial:</strong> <a href="https://sindetranba.com.br/diario-oficial-do-estado-da-bahia-do-dia-05-05-2026-edicao-24387" target="_blank">Sindetran-BA · DOE-BA 05/05/2026</a></p>
-    </article>
-
-    <article class="item">
-      <span class="tag">DETRAN/RJ · 05/05/2026</span>
-      <h3>Rio regulamenta atividade de instrutor autônomo de trânsito (Portaria 7058)</h3>
-      <p class="what">A Portaria DETRAN/RJ nº 7058, publicada no DOE-RJ em 05/05/2026, estabelece o credenciamento do profissional junto ao Detran-RJ como requisito indispensável para o exercício da atividade de instrutor autônomo de trânsito. Define novos requisitos para credenciamento e disciplina a relação do instrutor autônomo com CFCs e candidatos.</p>
-      <div class="why">
-        <div class="why-label">Por que importa</div>
-        <p>Acompanha o movimento federal da Senatran (Nova Jornada do Instrutor). RJ é o primeiro grande estado a regulamentar estadualmente o vínculo com a plataforma federal — abre precedente para SP, MG e demais. Empresas que operam plataformas de instrução, marketplaces de CFC ou serviços a candidatos precisam revisar enquadramento jurídico no RJ.</p>
-      </div>
-      <p class="meta"><strong>Vigência:</strong> A partir de 05/05/2026, com adequações conforme regras de credenciamento do Detran-RJ. · <strong>Fonte oficial:</strong> <a href="https://www.entreriosjornal.com/2026/05/detran-rj-autoriza-o-exercicio-da.html" target="_blank">Detran-RJ autoriza exercício de instrutor autônomo</a></p>
-    </article>
-  </section>
-
-  <section id="parcelamento">
-    <div class="section-title">Eixo 3</div>
-    <h2 class="section-h">Parcelamento e Pagamentos</h2>
-    <p class="empty">Sem novidades regulatórias relevantes nesta janela (04 a 11/05/2026). O regime vigente segue ancorado na Resolução Contran nº 918/22 (parcelamento em até 12x via cartão pelos órgãos arrecadadores). A Lei estadual nº 11.056/2025 do RJ (Pix para multas e serviços do Detran-RJ), sancionada em dez/2025, continua em fase de implementação operacional — monitorar publicação de regulamento técnico.</p>
-  </section>
-
-  <section id="legislacao">
-    <div class="section-title">Eixo 4</div>
-    <h2 class="section-h">Legislação e Judiciário</h2>
-
-    <article class="item">
-      <span class="tag alert">Alerta</span><span class="tag">Câmara · 07/05/2026</span>
-      <h3>Câmara aprova MP 1.327/25 — renovação automática da CNH para inscritos no RNPC</h3>
-      <p class="what">A Câmara dos Deputados aprovou em 07/05/2026 a Medida Provisória 1.327/25, que altera o CTB e prevê renovação automática da CNH para motoristas inscritos no Registro Nacional Positivo de Condutores (RNPC) — beneficia condutores sem infrações sujeitas a pontuação nos últimos 12 meses. Texto também consolida emissão física ou digital da CNH (à critério do condutor) e prevê que a União fixe preço de exames de aptidão e psicotécnico. Segue ao Senado.</p>
-      <div class="why">
-        <div class="why-label">Por que importa</div>
-        <p>Impacto direto no fluxo de renovação que sustenta receita de despachantes, CFCs e clínicas credenciadas. Tabelamento federal de preço de exames muda a economia de clínicas credenciadas em todo o país. Empresas que oferecem serviços de renovação, gestão de débitos e consulta veicular precisam reavaliar previsões de demanda — segmento "motorista sem multa" passa a ter friction zero no documento e tende a delegar menos a intermediários.</p>
-      </div>
-      <p class="meta"><strong>Vigência:</strong> MP em vigor desde edição, agora pendente de análise do Senado para conversão em lei. Prazo de validade da MP precisa ser acompanhado. · <strong>Fonte oficial:</strong> <a href="https://www.camara.leg.br/noticias/1269904-camara-aprova-renovacao-automatica-da-cnh-para-motorista-sem-multas" target="_blank">Câmara dos Deputados · 07/05/2026</a></p>
-    </article>
-
-    <article class="item">
-      <span class="tag">Câmara · CCJ · Maio 2026</span>
-      <h3>CCJ aprova projeto que altera CTB para regular interação entre veículos e bicicletas</h3>
-      <p class="what">A Comissão de Constituição e Justiça e de Cidadania (CCJ) da Câmara aprovou em maio/2026 projeto de lei que altera o CTB para regular a interação entre veículos motorizados e bicicletas. Texto segue ao Senado.</p>
-      <div class="why">
-        <div class="why-label">Por que importa</div>
-        <p>Cria novas hipóteses de infração e mudanças de pontuação que precisarão ser refletidas em sistemas de gestão de multas e nos cadastros de infração do Renainf. Impacto operacional limitado no curto prazo, mas exige preparo de tabelas de enquadramento se virar lei nos próximos meses.</p>
-      </div>
-      <p class="meta"><strong>Vigência:</strong> Aprovado em comissão; tramita no Senado. · <strong>Fonte oficial:</strong> <a href="https://jornaldebrasilia.com.br/noticias/politica-e-poder/camara-aprova-lei-que-regula-interacao-entre-veiculos-e-bicicletas/" target="_blank">Câmara aprova lei carros-bicicletas</a></p>
-    </article>
-  </section>
-
-  <div class="action-box" id="acao">
-    <h2>Ação requerida</h2>
-    <ul>
-      <li><strong>MP 1.327/25 (renovação automática de CNH):</strong> acompanhar trâmite no Senado nas próximas semanas. Avaliar impacto na previsão de receita do segmento "renovação assistida" e revisar narrativa comercial do produto antes da conversão em lei.</li>
-      <li><strong>Portaria DETRAN/BA 295 e DETRAN/RJ 7058:</strong> verificar se empresas parceiras atuando como pátio (BA) ou CFC/instrutor (RJ) precisam de adequação documental nos próximos 30-60 dias.</li>
-      <li><strong>Nova Jornada do Instrutor (Senatran):</strong> mapear concorrência com eventual produto próprio de marketplace de instrução, se aplicável ao roadmap.</li>
-    </ul>
+  <p class="meta-line">Vigência: imediata · <a href="https://www.correiodalavoura.com/2026/05/detran-rj-autoriza-o-exercicio-da.html">Fonte oficial</a></p>
+  <div class="vote-bar">
+    <span class="lbl">Sua opinião:</span>
+    <button class="vote-btn" data-voto="🔥" title="Relevante">🔥</button>
+    <button class="vote-btn" data-voto="👌" title="Ok">👌</button>
+    <button class="vote-btn" data-voto="🚫" title="Não interessa">🚫</button>
+    <span class="vote-status"></span>
   </div>
+  <div class="vote-form">
+    <textarea placeholder="Por que? (obrigatório para 🚫, opcional nos demais)"></textarea>
+    <button class="submit-vote">Enviar</button>
+  </div>
+</article>
 
-  <footer>
-    Radar Regulatório · Multas — gerado automaticamente em 11 de maio de 2026.
-  </footer>
+<article class="item" id="item-02" data-item-id="02">
+  <span class="item-tag">RS · DETRAN</span>
+  <h3>DETRAN-RS Portaria 019/2026 ajusta preços de registro de contratos de financiamento veicular</h3>
+  <p>A <strong>Portaria DETRAN/RS Nº 019/2026</strong> altera as Portarias 556/2025 e 557/2025, estabelecendo novos preços públicos para serviços de registro de contratos de financiamento veicular no estado. Mexe diretamente nos custos operacionais de quem intermedia financiamento auto no RS.</p>
+  <div class="why">
+    <p class="why-title">Por que importa</p>
+    <p>Mudanças em pricing operacional do RS (3º maior mercado auto do país) afetam concessionárias, financeiras e plataformas digitais de venda de veículo. Para SaaS que faz integração com sistemas de Detran estadual: vale revisar se cobrança automatizada está em linha com tabela nova. Risco: outros Detrans podem replicar padrão de ajuste — vale benchmark.</p>
+  </div>
+  <p class="meta-line">Vigência: 2026 · <a href="https://publicacoeslegais.detran.rs.gov.br/portaria-detran-rs-n-019-2026">Fonte oficial</a></p>
+  <div class="vote-bar">
+    <span class="lbl">Sua opinião:</span>
+    <button class="vote-btn" data-voto="🔥" title="Relevante">🔥</button>
+    <button class="vote-btn" data-voto="👌" title="Ok">👌</button>
+    <button class="vote-btn" data-voto="🚫" title="Não interessa">🚫</button>
+    <span class="vote-status"></span>
+  </div>
+  <div class="vote-form">
+    <textarea placeholder="Por que? (obrigatório para 🚫, opcional nos demais)"></textarea>
+    <button class="submit-vote">Enviar</button>
+  </div>
+</article>
+
+<h2 class="section-title" id="parcelamento">Parcelamento e Pagamentos</h2>
+<p class="empty">Sem mudanças regulatórias específicas em parcelamento esta semana. Regras vigentes (Resolução CONTRAN 918/22, Portaria SENATRAN 149/18) permanecem inalteradas.</p>
+
+<h2 class="section-title" id="legislacao">Legislação e Judiciário</h2>
+
+<article class="item" id="item-03" data-item-id="03">
+  <span class="item-tag">STJ · TEMA 1.137</span>
+  <h3>STJ Tema 1.137 consolidado: critérios objetivos para suspensão de CNH por dívida produzem efeitos em 2026</h3>
+  <p>O <strong>Tema Repetitivo 1.137 do STJ</strong>, consolidado no fim de 2025, definiu que <strong>todos os juízes do Brasil devem seguir critérios objetivos e uniformes</strong> para suspender CNH como medida coercitiva atípica (art. 139 CPC). Suspensão só pode ocorrer após esgotamento de meios tradicionais (bloqueio de contas, penhora). <strong>Vedado para</strong>: motoristas profissionais, pessoas em tratamento médico, dívidas irrisórias.</p>
+  <div class="why">
+    <p class="why-title">Por que importa</p>
+    <p>Efeito vinculante em 2026: reduz arbitrariedade judicial e aumenta previsibilidade pra credores e devedores. <strong>Sinal de alerta operacional</strong>: empresas de cobrança veicular ou prestadores de serviço de gestão de multas que usavam ameaça de suspensão de CNH como ferramenta de pressão extrajudicial precisam revisar comunicação — risco de prática abusiva sob a nova régua. Por outro lado, credores institucionais ganham clareza sobre quando faz sentido pedir suspensão.</p>
+  </div>
+  <p class="meta-line">Vigência: imediata (vinculante) · <a href="https://ndmais.com.br/transito/apreensao-da-cnh-por-divida-regra-do-stf-fixa-limites/">Fonte oficial</a></p>
+  <div class="vote-bar">
+    <span class="lbl">Sua opinião:</span>
+    <button class="vote-btn" data-voto="🔥" title="Relevante">🔥</button>
+    <button class="vote-btn" data-voto="👌" title="Ok">👌</button>
+    <button class="vote-btn" data-voto="🚫" title="Não interessa">🚫</button>
+    <span class="vote-status"></span>
+  </div>
+  <div class="vote-form">
+    <textarea placeholder="Por que? (obrigatório para 🚫, opcional nos demais)"></textarea>
+    <button class="submit-vote">Enviar</button>
+  </div>
+</article>
+
+<div class="action-required">
+  <p class="action-title">⚠ Ação requerida</p>
+  <ul>
+    <li><strong>DETRAN-RJ Portaria 7058:</strong> empresas que oferecem treinamento de motoristas ou terceirizam autoescolas no RJ devem revisar fluxos de credenciamento e contrato com instrutores autônomos. Avaliar se vale firmar parcerias com profissionais agora habilitados.</li>
+    <li><strong>STJ Tema 1.137:</strong> times jurídico/compliance de empresas que lidam com cobrança veicular ou gestão de multas devem revisar scripts de comunicação extrajudicial e protocolos de pedido de medida coercitiva — eliminando referências genéricas à suspensão de CNH como ameaça.</li>
+    <li><strong>DETRAN-RS Portaria 019/2026:</strong> equipes financeiras/operacionais que processam registros de financiamento veicular no RS devem atualizar tabela de preços públicos.</li>
+  </ul>
+</div>
+
+<footer>
+  <p>Radar Regulatório Multas · Briefing semanal · <a href="https://yagoalmei.github.io/radar-regulatorio-multas/">Ver todas as edições</a></p>
+</footer>
 
 </div>
+
+<div class="nickname-prompt" id="nicknamePrompt">
+  <p>Primeira vez por aqui. Quer se identificar?</p>
+  <input type="text" id="nicknameInput" placeholder="Apelido (opcional)" maxlength="60">
+  <button id="nicknameSave">Salvar</button>
+  <button class="skip" id="nicknameSkip">Ficar anônimo</button>
+</div>
+<script>
+(function(){
+  const VOTE_CONFIG = {
+    workerUrl: 'https://radar-mercado-feedback.yagoclaude.workers.dev',
+    repo: 'radar-regulatorio-multas',
+    week: '2026-W20',
+    issue: 1
+  };
+
+  let uuid = localStorage.getItem('rm_uuid');
+  if (!uuid) {
+    uuid = 'u_' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+    localStorage.setItem('rm_uuid', uuid);
+  }
+  let nickname = localStorage.getItem('rm_nickname') || '';
+  let askedNickname = localStorage.getItem('rm_asked_nickname') === '1';
+
+  function showNicknamePrompt() {
+    if (askedNickname) return;
+    document.getElementById('nicknamePrompt').classList.add('open');
+  }
+  document.getElementById('nicknameSave').addEventListener('click', () => {
+    const v = document.getElementById('nicknameInput').value.trim();
+    if (v) { nickname = v; localStorage.setItem('rm_nickname', v); }
+    localStorage.setItem('rm_asked_nickname', '1');
+    askedNickname = true;
+    document.getElementById('nicknamePrompt').classList.remove('open');
+  });
+  document.getElementById('nicknameSkip').addEventListener('click', () => {
+    localStorage.setItem('rm_asked_nickname', '1');
+    askedNickname = true;
+    document.getElementById('nicknamePrompt').classList.remove('open');
+  });
+
+  document.querySelectorAll('article.item').forEach(art => {
+    const id = art.dataset.itemId;
+    const prev = localStorage.getItem('rm_vote_' + VOTE_CONFIG.repo + '_' + VOTE_CONFIG.week + '_' + id);
+    if (prev) {
+      art.querySelectorAll('.vote-btn').forEach(b => {
+        if (b.dataset.voto === prev) b.classList.add('active');
+      });
+      art.querySelector('.vote-status').textContent = 'Você votou ' + prev;
+    }
+  });
+
+  document.querySelectorAll('.vote-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const art = btn.closest('article.item');
+      const voto = btn.dataset.voto;
+      const form = art.querySelector('.vote-form');
+      art.querySelectorAll('.vote-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      form.dataset.voto = voto;
+      form.classList.add('open');
+      const ta = form.querySelector('textarea');
+      ta.placeholder = (voto === '🚫')
+        ? 'Por que não? (obrigatório, 3 caracteres mínimo)'
+        : 'Comentário (opcional)';
+      ta.focus();
+      if (!askedNickname) setTimeout(showNicknamePrompt, 500);
+    });
+  });
+
+  document.querySelectorAll('.submit-vote').forEach(sb => {
+    sb.addEventListener('click', async () => {
+      const form = sb.closest('.vote-form');
+      const art = sb.closest('article.item');
+      const voto = form.dataset.voto;
+      const motivo = form.querySelector('textarea').value.trim();
+      if (voto === '🚫' && motivo.length < 3) {
+        alert('Motivo obrigatório para 🚫'); return;
+      }
+      sb.disabled = true; sb.textContent = 'Enviando...';
+      try {
+        const r = await fetch(VOTE_CONFIG.workerUrl + '/vote', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            repo: VOTE_CONFIG.repo,
+            item_id: art.dataset.itemId,
+            voto,
+            motivo: motivo || null,
+            nickname: nickname || null,
+            uuid,
+            week: VOTE_CONFIG.week,
+            issue_number: VOTE_CONFIG.issue
+          })
+        });
+        const d = await r.json();
+        if (!d.ok) throw new Error(d.error || 'HTTP ' + r.status);
+        localStorage.setItem('rm_vote_' + VOTE_CONFIG.repo + '_' + VOTE_CONFIG.week + '_' + art.dataset.itemId, voto);
+        art.querySelector('.vote-status').textContent = 'Você votou ' + voto + ' ✓';
+        form.classList.remove('open');
+        sb.disabled = false; sb.textContent = 'Enviar';
+      } catch (e) {
+        alert('Erro ao enviar voto: ' + e.message);
+        sb.disabled = false; sb.textContent = 'Enviar';
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>
