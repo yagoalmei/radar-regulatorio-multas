@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Radar Regulatório Multas — Semana 20 / 2026</title>
+<style>
+:root{
+  --bg:#fafaf9;--surface:#ffffff;--text:#1c1917;--muted:#57534e;
+  --border:#e7e5e4;--accent:#ea580c;--soft:#f1f5f9;--link:#1d4ed8;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0c0a09;--surface:#1c1917;--text:#f5f5f4;--muted:#a8a29e;
+    --border:#292524;--accent:#fb923c;--soft:#292524;--link:#93c5fd;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;
+  font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:32px 20px 80px}
+header{margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.eyebrow{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin:0 0 8px}
+h1{font-size:28px;line-height:1.2;margin:0 0 8px;font-weight:700;letter-spacing:-0.01em}
+.subtitle{color:var(--muted);margin:0;font-size:15px}
+.subtitle em{font-style:italic}
+.tldr{background:var(--surface);border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:10px;padding:16px 18px;margin:22px 0}
+.tldr h2{font-size:13px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin:0 0 8px}
+.tldr p{margin:0;font-size:15px}
+.toc{background:var(--soft);border-radius:10px;padding:14px 18px;margin:22px 0;font-size:14px}
+.toc strong{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);
+  display:block;margin-bottom:6px}
+.toc a{color:var(--link);text-decoration:none;margin-right:14px;line-height:1.9}
+.toc a:hover{text-decoration:underline}
+h2.section{font-size:20px;margin:36px 0 14px;padding-bottom:8px;
+  border-bottom:1px solid var(--border);font-weight:700;letter-spacing:-0.01em}
+.item{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  padding:18px 20px;margin-bottom:16px}
+.item .badge{display:inline-block;background:var(--soft);color:var(--muted);
+  border:1px solid var(--border);border-radius:6px;padding:3px 8px;font-size:10px;
+  letter-spacing:0.1em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.item .badge.alerta{background:var(--accent);color:#fff;border-color:var(--accent)}
+.item h3{font-size:17px;margin:0 0 10px;line-height:1.35;font-weight:700}
+.item p{margin:0 0 8px;font-size:15px}
+.item .pq{background:var(--soft);border-left:3px solid var(--accent);
+  border-radius:6px;padding:10px 14px;margin:10px 0;font-size:14px}
+.item .pq strong{display:block;font-size:11px;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:4px;font-weight:700}
+.item .meta{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.6}
+.item .meta a{color:var(--link);text-decoration:none}
+.item .meta a:hover{text-decoration:underline}
+.vote-bar{display:flex;gap:8px;margin-top:14px;padding-top:12px;
+  border-top:1px solid var(--border);align-items:center;flex-wrap:wrap}
+.vote-bar .lbl{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);font-weight:700;margin-right:8px}
+.vote-btn{background:var(--soft);border:1px solid var(--border);
+  border-radius:8px;padding:6px 12px;font-size:16px;cursor:pointer;
+  transition:all 0.15s;font-family:inherit}
+.vote-btn:hover{transform:scale(1.08)}
+.vote-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.vote-status{font-size:12px;color:var(--muted);margin-left:auto}
+.vote-form{margin-top:10px;display:none}
+.vote-form.open{display:block}
+.vote-form textarea{width:100%;min-height:60px;padding:8px;
+  border:1px solid var(--border);border-radius:8px;font-family:inherit;
+  font-size:16px;background:var(--bg);color:var(--text);resize:vertical}
+.vote-form button{margin-top:6px;background:var(--accent);color:#fff;
+  border:none;border-radius:6px;padding:6px 14px;font-size:13px;
+  font-weight:600;cursor:pointer;font-family:inherit}
+.acao{background:var(--surface);border:2px solid var(--accent);border-radius:12px;
+  padding:18px 20px;margin-top:36px}
+.acao h2{font-size:16px;margin:0 0 10px;color:var(--accent);font-weight:700;
+  letter-spacing:0.04em;text-transform:uppercase}
+.acao ul{margin:0;padding-left:20px}
+.acao li{margin-bottom:8px;font-size:15px;line-height:1.5}
+.acao li:last-child{margin-bottom:0}
+footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--border);
+  color:var(--muted);font-size:13px;line-height:1.6}
+footer a{color:var(--link);text-decoration:none}
+.nickname-prompt{position:fixed;bottom:20px;right:20px;background:var(--surface);
+  border:1px solid var(--border);border-radius:12px;padding:16px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.15);max-width:280px;z-index:100;display:none}
+.nickname-prompt.open{display:block}
+.nickname-prompt p{margin:0 0 8px;font-size:13px}
+.nickname-prompt input{width:100%;padding:6px 8px;border:1px solid var(--border);
+  border-radius:6px;background:var(--bg);color:var(--text);font-family:inherit;
+  font-size:13px;margin-bottom:8px}
+.nickname-prompt button{background:var(--accent);color:#fff;border:none;
+  border-radius:6px;padding:6px 12px;font-size:12px;font-weight:600;
+  cursor:pointer;font-family:inherit;margin-right:6px}
+.nickname-prompt button.skip{background:var(--soft);color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <p class="eyebrow">Radar Regulatório Multas · Semana 20 · 2026</p>
+  <h1>Semana de 11 a 18 de maio</h1>
+  <p class="subtitle"><em>Cinco itens nesta edição. DETRAN-SP cravou cronograma de transição do e-Vistoria (1/jun, 16/jun, 1/jul) e Câmara aprovou Marco Legal do Transporte Público Coletivo com multa até R$ 15 mil para transporte irregular — exige acompanhamento operacional e jurídico.</em></p>
+</header>
+
+<div class="tldr">
+  <h2>TL;DR</h2>
+  <p><strong>1.</strong> <b>DETRAN-SP / Portaria 10.642 de 24/04</b> ativa cronograma de descontinuação do e-Vistoria — virada em três janelas (01/06, 16/06 e 01/07). ECVs e plataformas integradoras precisam estar conformes às normas ISO antes dessas datas.<br>
+  <strong>2.</strong> <b>Câmara aprovou em 13/05 o Marco Legal do Transporte Público Coletivo</b> (PL 3.278/2021) — segue para sanção; prevê multas até R$ 15 mil e perda de veículo por reincidência em transporte irregular de passageiros.<br>
+  <strong>3.</strong> Movimentação relevante em credenciamentos estaduais (BA e PA) na janela. <b>Sem novidades específicas em parcelamento de multas e em portarias inéditas da Senatran</b> nos últimos 7 dias.</p>
+</div>
+
+<div class="toc">
+  <strong>Nesta edição</strong>
+  <a href="#senatran">Senatran / Federal</a>
+  <a href="#detrans">Detrans Estaduais</a>
+  <a href="#parcelamento">Parcelamento e Pagamentos</a>
+  <a href="#legislacao">Legislação e Judiciário</a>
+</div>
+
+<h2 class="section" id="senatran">Senatran / Federal</h2>
+
+<article class="item" data-item-id="01">
+  <span class="badge">Senatran</span>
+  <h3>Sem novidades regulatórias federais relevantes na janela</h3>
+  <p>Nos últimos 7 dias não houve publicação no DOU de portaria, resolução ou instrução normativa da Senatran com efeito sistêmico sobre o ecossistema (credenciamento de empresas, acesso a bases — RENAINF/SNG/CNH/CRLV — ou alterações no Sistema Nacional de Trânsito). As portarias mais recentes da Senatran com impacto estrutural ainda referem-se à Resolução 1.020/2025 do CONTRAN, em fase de regulamentação pelos Detrans.</p>
+  <div class="pq">
+    <strong>Por que importa</strong>
+    Semana calma no nível federal não significa parada — significa que o esforço de adequação às mudanças já em curso (Resolução 1.020, novo manual de prova prática, fluxo digital de instrutor) continua sendo o vetor principal. Mantenha leitura do DOU e da página de Portarias 2026 da Senatran.
+  </div>
+  <p class="meta">Vigência: n/a · Fonte oficial: <a href="https://www.gov.br/transportes/pt-br/assuntos/transito/senatran/portarias-2026" target="_blank" rel="noopener">Portarias Senatran 2026 (Min. dos Transportes)</a></p>
+  <div class="vote-bar">
+    <span class="lbl">Sua opinião:</span>
+    <button class="vote-btn" data-voto="🔥" title="Relevante">🔥</button>
+    <button class="vote-btn" data-voto="👌" title="Ok">👌</button>
+    <button class="vote-btn" data-voto="🚫" title="Não interessa">🚫</button>
+    <span class="vote-status"></span>
+  </div>
+  <div class="vote-form">
+    <textarea placeholder="Por que? (obrigatório para 🚫, opcional nos demais)"></textarea>
+    <button class="submit-vote">Enviar</button>
+  </div>
+</article>
+
+<h2 class="section" id="detrans">Detrans Estaduais</h2>
+
+<article class="item" data-item-id="02">
+  <span class="badge alerta">SP · Alerta</span>
+  <h3>DETRAN-SP: Portaria 10.642/2026 fixa cronograma de descontinuação do e-Vistoria</h3>
+  <p><b>O que mudou:</b> publicada em 24/04 e reverberando nas semanas seguintes, a Portaria 10.642 detalha o calendário de migração para o novo sistema de vistoria veicular previsto pela Portaria Normativa DETRAN-SP 47/2025. A partir de <b>01/06/2026</b>, apenas laudos de Estrutura e Alteração emitidos pelo novo sistema são aceitos; <b>16/06/2026</b> aplica a regra também a laudos de Identificação Veicular; <b>01/07/2026</b> estende-se aos laudos de Segurança Veicular. ECVs devem operar via plataformas integradoras credenciadas, atendendo padrões ISO/IEC 27001, 27701, 27017, 27018, 9001 e 20000-1.</p>
+  <div class="pq">
+    <strong>Por que importa</strong>
+    SP é o maior mercado de vistoria do país e historicamente serve de modelo para outros Detrans. Empresas (ECVs, integradores, plataformas que dependem de laudos) com integração via e-Vistoria precisam ter rota de migração validada — multa operacional aqui é deixar de emitir laudo aceito após as datas-corte. Quem opera integração para frotas, locadoras e seguradoras deve confirmar status do parceiro credenciado.
+  </div>
+  <p class="meta">Vigência: faseada — 01/06, 16/06 e 01/07/2026 · Fonte oficial: <a href="https://www.detran.sp.gov.br/wps/portal/portaldetran/detran/normas/sa-portarias/0b222f1d-b1eb-496a-8b23-e526ec3b8a79" target="_blank" rel="noopener">Portarias DETRAN-SP</a> · Análise: <a href="https://addexconsultoria.com.br/nova-portaria-detran-sp-no-47-2025-o-que-muda-e-quais-os-impactos-para-as-ecvs-a-partir-de-2026/" target="_blank" rel="noopener">Addex Consultoria</a></p>
+  <div class="vote-bar">
+    <span class="lbl">Sua opinião:</span>
+    <button class="vote-btn" data-voto="🔥" title="Relevante">🔥</button>
+    <button class="vote-btn" data-voto="👌" title="Ok">👌</button>
+    <button class="vote-btn" data-voto="🚫" title="Não interessa">🚫</button>
+    <span class="vote-status"></span>
+  </div>
+  <div class="vote-form">
+    <textarea placeholder="Por que? (obrigatório para 🚫, opcional nos demais)"></textarea>
+    <button class="submit-vote">Enviar</button>
+  </div>
+</article>
+
+<article class="item" data-item-id="03">
+  <span class="badge">BA</span>
+  <h3>DETRAN-BA: Portaria 295/2026 homologa Edital de Credenciamento 001/2026 (remoção, guarda, pátios, leilões)</h3>
+  <p><b>O que mudou:</b> publicada no DOE-BA em 05/05/2026, a Portaria 295 (de 04/05) homologa o Edital de Credenciamento nº 001/2026, abrindo processo para credenciamento de empresas prestadoras de serviços de remoção e guarda de veículos, gestão de pátios e suporte técnico a leilões públicos no âmbito do Detran-BA.</p>
+  <div class="pq">
+    <strong>Por que importa</strong>
+    Sinal antecedente: a Bahia profissionalizando a cadeia de pátios/leilões puxa um modelo que tende a ser copiado por outros Detrans regionais. Empresas do setor de gestão de pátios, leilões judiciais/administrativos e logística de remoção devem analisar termos e janelas para participar — e quem atua em outros estados pode mapear como referência regulatória.
+  </div>
+  <p class="meta">Vigência: a partir da publicação · Fonte oficial: <a href="https://sindetranba.com.br/diario-oficial-do-estado-da-bahia-do-dia-05-05-2026-edicao-24387" target="_blank" rel="noopener">Diário Oficial do Estado da Bahia (Ed. 24387)</a></p>
+  <div class="vote-bar">
+    <span class="lbl">Sua opinião:</span>
+    <button class="vote-btn" data-voto="🔥" title="Relevante">🔥</button>
+    <button class="vote-btn" data-voto="👌" title="Ok">👌</button>
+    <button class="vote-btn" data-voto="🚫" title="Não interessa">🚫</button>
+    <span class="vote-status"></span>
+  </div>
+  <div class="vote-form">
+    <textarea placeholder="Por que? (obrigatório para 🚫, opcional nos demais)"></textarea>
+    <button class="submit-vote">Enviar</button>
+  </div>
+</article>
+
+<article class="item" data-item-id="04">
+  <span class="badge">PA</span>
+  <h3>DETRAN-PA: Edital 01/2026 abre credenciamento de ECVs em Monte Alegre, Santarém e São Geraldo do Araguaia</h3>
+  <p><b>O que mudou:</b> em 08/05/2026, o Detran-PA publicou o Edital de Credenciamento nº 01/2026-CCEV/DG para serviços de vistoria de identificação veicular (ECV) em três municípios do oeste/sudeste paraense. Concomitantemente, a Senatran segue revisando regras de ECV federalmente — qualquer credenciamento estadual hoje precisa antecipar requisitos federais futuros.</p>
+  <div class="pq">
+    <strong>Por que importa</strong>
+    Mercado de vistoria no Pará está em expansão regional. Para players de tecnologia de vistoria, integradores e franquias, esse edital é uma entrada potencial. Para empresas com operação multi-estado, ajuda dimensionar pipeline de credenciamentos de 2026.
+  </div>
+  <p class="meta">Vigência: aberto a partir da publicação · Fonte oficial: <a href="https://grupootimiza.com.br/legislacao/edital-de-credenciamento-de-ecv-detran-pa-01-2026-ccev-dg-de-08-de-maio-de-2026/" target="_blank" rel="noopener">Edital DETRAN-PA 01/2026 (íntegra via Grupo Otimiza)</a></p>
+  <div class="vote-bar">
+    <span class="lbl">Sua opinião:</span>
+    <button class="vote-btn" data-voto="🔥" title="Relevante">🔥</button>
+    <button class="vote-btn" data-voto="👌" title="Ok">👌</button>
+    <button class="vote-btn" data-voto="🚫" title="Não interessa">🚫</button>
+    <span class="vote-status"></span>
+  </div>
+  <div class="vote-form">
+    <textarea placeholder="Por que? (obrigatório para 🚫, opcional nos demais)"></textarea>
+    <button class="submit-vote">Enviar</button>
+  </div>
+</article>
+
+<h2 class="section" id="parcelamento">Parcelamento e Pagamentos</h2>
+
+<article class="item" data-item-id="05">
+  <span class="badge">Parcelamento</span>
+  <h3>Sem novidades regulatórias em parcelamento na janela</h3>
+  <p>Não foram identificadas, nos últimos 7 dias, publicações estaduais ou municipais novas autorizando ou alterando regras de parcelamento de multas, nem deliberações novas do CONTRAN sobre o tema. A Resolução 918/2022 do CONTRAN segue como marco vigente — os Detrans estaduais não são obrigados a oferecer parcelamento, e a adesão continua heterogênea entre estados.</p>
+  <div class="pq">
+    <strong>Por que importa</strong>
+    Quando esse eixo está calmo, dá pra usar a janela para mapear quais estados ainda não oferecem parcelamento — eles são candidatos naturais a abrir o serviço nos próximos 12 meses (movimento já visto em PR, SC e PA). É boa hora para conversas comerciais com Detrans que ainda não têm integração.
+  </div>
+  <p class="meta">Vigência: n/a · Fonte: <a href="https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/resolucoes-contran" target="_blank" rel="noopener">Resoluções CONTRAN (Min. dos Transportes)</a></p>
+  <div class="vote-bar">
+    <span class="lbl">Sua opinião:</span>
+    <button class="vote-btn" data-voto="🔥" title="Relevante">🔥</button>
+    <button class="vote-btn" data-voto="👌" title="Ok">👌</button>
+    <button class="vote-btn" data-voto="🚫" title="Não interessa">🚫</button>
+    <span class="vote-status"></span>
+  </div>
+  <div class="vote-form">
+    <textarea placeholder="Por que? (obrigatório para 🚫, opcional nos demais)"></textarea>
+    <button class="submit-vote">Enviar</button>
+  </div>
+</article>
+
+<h2 class="section" id="legislacao">Legislação e Judiciário</h2>
+
+<article class="item" data-item-id="06">
+  <span class="badge alerta">Federal · Sanção</span>
+  <h3>Câmara aprova Marco Legal do Transporte Público Coletivo (PL 3.278/2021) — vai à sanção presidencial</h3>
+  <p><b>O que mudou:</b> em 13/05/2026, o Plenário da Câmara dos Deputados aprovou o PL 3.278/2021, que cria o Marco Legal do Transporte Público Coletivo. O texto segue para sanção presidencial. Pontos-chave: multas até <b>R$ 15 mil</b> para transporte irregular de passageiros; <b>perda do veículo</b> em caso de reincidência em 12 meses; mínimo de <b>60% da CIDE-Combustíveis</b> destinado a transporte coletivo/mobilidade urbana; gratuidades e descontos tarifários não poderão ser custeados por outros passageiros.</p>
+  <div class="pq">
+    <strong>Por que importa</strong>
+    Impacto direto sobre apps/intermediadores de transporte alternativo, operações de fretamento e quem atua em zonas cinzas de transporte irregular — patamar de multa de R$ 15 mil pesa em modelagem de risco operacional. Para players de pagamento e consulta veicular, o reforço do regime de penalidades pode aumentar volume e ticket médio de débitos vinculados a veículos no segmento.
+  </div>
+  <p class="meta">Vigência: aguarda sanção (prazo presidencial de 15 dias úteis após recebimento) · Fonte oficial: <a href="https://www12.senado.leg.br/noticias/materias/2026/05/14/marco-legal-do-transporte-publico-coletivo-vai-a-sancao-presidencial" target="_blank" rel="noopener">Senado Notícias</a> · <a href="https://www.camara.leg.br/noticias/1272106-camara-aprova-marco-legal-do-transporte-publico-coletivo" target="_blank" rel="noopener">Câmara dos Deputados</a></p>
+  <div class="vote-bar">
+    <span class="lbl">Sua opinião:</span>
+    <button class="vote-btn" data-voto="🔥" title="Relevante">🔥</button>
+    <button class="vote-btn" data-voto="👌" title="Ok">👌</button>
+    <button class="vote-btn" data-voto="🚫" title="Não interessa">🚫</button>
+    <span class="vote-status"></span>
+  </div>
+  <div class="vote-form">
+    <textarea placeholder="Por que? (obrigatório para 🚫, opcional nos demais)"></textarea>
+    <button class="submit-vote">Enviar</button>
+  </div>
+</article>
+
+<div class="acao">
+  <h2>Ação requerida</h2>
+  <ul>
+    <li><b>(DETRAN-SP / e-Vistoria)</b> — Confirmar com integrador credenciado a prontidão de migração para o novo sistema antes de <b>01/06/2026</b> (Estrutura e Alteração), <b>16/06/2026</b> (Identificação Veicular) e <b>01/07/2026</b> (Segurança Veicular). Validar conformidade com ISO 27001/27701/27017/27018, 9001 e 20000-1. Operação que depende de laudo emitido em SP fica em risco se não migrar.</li>
+    <li><b>(Marco Legal do Transporte Público — PL 3.278/2021)</b> — Acompanhar publicação após sanção presidencial. Times jurídico e de produto que tangenciam intermediação de transporte de passageiros devem revisar exposição a multas de até R$ 15 mil e cláusulas contratuais com motoristas/operadores. Mapear se o regime de perda de veículo por reincidência cria novo gancho operacional para serviços de consulta/gestão.</li>
+    <li><b>(DETRAN-BA / Edital 001/2026)</b> — Para empresas que atuam ou queiram atuar em pátios e leilões na Bahia: revisar termos do edital e janela de adesão antes de prazo de credenciamento expirar.</li>
+  </ul>
+</div>
+
+<footer>
+  <p>Pipeline automatizado. Edição publicada via GitHub Pages. Vote nos itens para calibrar a próxima rodada — feedback do comitê alimenta o filtro editorial da semana seguinte.</p>
+  <p><a href="./">Ver todas as edições</a></p>
+</footer>
+
+</div>
+
+<div class="nickname-prompt" id="nicknamePrompt">
+  <p>Primeira vez por aqui. Quer se identificar?</p>
+  <input type="text" id="nicknameInput" placeholder="Apelido (opcional)" maxlength="60">
+  <button id="nicknameSave">Salvar</button>
+  <button class="skip" id="nicknameSkip">Ficar anônimo</button>
+</div>
+<script>
+(function(){
+  const VOTE_CONFIG = {
+    workerUrl: 'https://radar-mercado-feedback.yagoclaude.workers.dev',
+    repo: 'radar-regulatorio-multas',
+    week: '2026-W20',
+    issue: 2
+  };
+
+  let uuid = localStorage.getItem('rm_uuid');
+  if (!uuid) {
+    uuid = 'u_' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+    localStorage.setItem('rm_uuid', uuid);
+  }
+  let nickname = localStorage.getItem('rm_nickname') || '';
+  let askedNickname = localStorage.getItem('rm_asked_nickname') === '1';
+
+  function showNicknamePrompt() {
+    if (askedNickname) return;
+    document.getElementById('nicknamePrompt').classList.add('open');
+  }
+  document.getElementById('nicknameSave').addEventListener('click', () => {
+    const v = document.getElementById('nicknameInput').value.trim();
+    if (v) { nickname = v; localStorage.setItem('rm_nickname', v); }
+    localStorage.setItem('rm_asked_nickname', '1');
+    askedNickname = true;
+    document.getElementById('nicknamePrompt').classList.remove('open');
+  });
+  document.getElementById('nicknameSkip').addEventListener('click', () => {
+    localStorage.setItem('rm_asked_nickname', '1');
+    askedNickname = true;
+    document.getElementById('nicknamePrompt').classList.remove('open');
+  });
+
+  document.querySelectorAll('article.item').forEach(art => {
+    const id = art.dataset.itemId;
+    const prev = localStorage.getItem('rm_vote_' + VOTE_CONFIG.repo + '_' + VOTE_CONFIG.week + '_' + id);
+    if (prev) {
+      art.querySelectorAll('.vote-btn').forEach(b => {
+        if (b.dataset.voto === prev) b.classList.add('active');
+      });
+      art.querySelector('.vote-status').textContent = 'Você votou ' + prev;
+    }
+  });
+
+  async function sendVote(art, voto, motivo) {
+    art.querySelector('.vote-status').textContent = 'Enviando...';
+    try {
+      const r = await fetch(VOTE_CONFIG.workerUrl + '/vote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          repo: VOTE_CONFIG.repo,
+          item_id: art.dataset.itemId,
+          voto,
+          motivo: motivo || null,
+          nickname: nickname || null,
+          uuid,
+          week: VOTE_CONFIG.week,
+          issue_number: VOTE_CONFIG.issue
+        })
+      });
+      const d = await r.json();
+      if (!d.ok) throw new Error(d.error || 'HTTP ' + r.status);
+      localStorage.setItem('rm_vote_' + VOTE_CONFIG.repo + '_' + VOTE_CONFIG.week + '_' + art.dataset.itemId, voto);
+      art.querySelector('.vote-status').textContent = 'Você votou ' + voto + ' ✓';
+      if (!askedNickname) setTimeout(showNicknamePrompt, 500);
+      return true;
+    } catch (e) {
+      art.querySelector('.vote-status').textContent = 'Erro: ' + e.message;
+      return false;
+    }
+  }
+
+  document.querySelectorAll('.vote-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const art = btn.closest('article.item');
+      const voto = btn.dataset.voto;
+      const form = art.querySelector('.vote-form');
+      art.querySelectorAll('.vote-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (voto === '🚫') {
+        form.dataset.voto = voto;
+        form.classList.add('open');
+        const ta = form.querySelector('textarea');
+        ta.placeholder = 'Por que não? (mínimo 3 caracteres)';
+        ta.focus();
+      } else {
+        form.classList.remove('open');
+        await sendVote(art, voto, '');
+      }
+    });
+  });
+
+  document.querySelectorAll('.submit-vote').forEach(sb => {
+    sb.addEventListener('click', async () => {
+      const form = sb.closest('.vote-form');
+      const art = sb.closest('article.item');
+      const voto = form.dataset.voto;
+      const motivo = form.querySelector('textarea').value.trim();
+      if (motivo.length < 3) {
+        alert('Motivo obrigatório (mínimo 3 caracteres)');
+        return;
+      }
+      sb.disabled = true; sb.textContent = 'Enviando...';
+      const ok = await sendVote(art, voto, motivo);
+      if (ok) form.classList.remove('open');
+      sb.disabled = false; sb.textContent = 'Enviar';
+    });
+  });
+})();
+</script>
+</body>
+</html>
